@@ -31,6 +31,9 @@ public class PlayerMovementSanto : MonoBehaviour
     public Transform groundCheckPoint; //Punto donde se dibuja la esfera para checar si el jugador esta en el suelo
     public float radius; //Radio de la esfera mencionada
 
+    [Header("Other player")]
+    private GameObject otherPlayer;
+
     //[Header("Sound")]
     //private Sounds sounds;
 
@@ -42,6 +45,7 @@ public class PlayerMovementSanto : MonoBehaviour
         gravity = (2 * jumpHeight) / math.pow(timeToJumpApex, 2);
         jumpVel = math.abs(gravity) * timeToJumpApex;
         rb.gravityScale = gravity;
+        otherPlayer = GameObject.FindGameObjectWithTag("Player2");
     }
 
     // Update is called once per frame
@@ -62,11 +66,11 @@ public class PlayerMovementSanto : MonoBehaviour
 
         movement.x = Input.GetAxisRaw("HorizontalP1"); // recibir input de derecha o izquierda
 
-        if (movement.x < 0)
+        if (otherPlayer.transform.position.x <= transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        else if (movement.x > 0)
+        else if (otherPlayer.transform.position.x > transform.position.x)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }

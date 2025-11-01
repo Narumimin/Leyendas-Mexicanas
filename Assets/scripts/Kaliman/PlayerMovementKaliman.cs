@@ -34,6 +34,9 @@ public class PlayerMovementKaliman : MonoBehaviour
     //[Header("Sound")]
     //private Sounds sounds;
 
+    [Header("Other player")]
+    private GameObject otherPlayer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,6 +45,7 @@ public class PlayerMovementKaliman : MonoBehaviour
         gravity = (2 * jumpHeight) / math.pow(timeToJumpApex, 2);
         jumpVel = math.abs(gravity) * timeToJumpApex;
         rb.gravityScale = gravity;
+        otherPlayer = GameObject.FindGameObjectWithTag("Player1");
     }
 
     // Update is called once per frame
@@ -62,14 +66,15 @@ public class PlayerMovementKaliman : MonoBehaviour
 
         movement.x = Input.GetAxisRaw("HorizontalP2"); // recibir input de derecha o izquierda
 
-        if (movement.x < 0)
+        if (otherPlayer.transform.position.x <= transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        else if (movement.x > 0)
+        else if (otherPlayer.transform.position.x > transform.position.x)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+
 
         //animator.SetBool("onFloor", isGrounded());
         //animator.SetFloat("movement", movement.x);
