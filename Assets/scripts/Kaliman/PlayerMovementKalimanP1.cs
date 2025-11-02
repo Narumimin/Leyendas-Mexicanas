@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using Unity.Mathematics;
 
-public class PlayerMovementKaliman : MonoBehaviour
+public class PlayerMovementKalimanP1 : MonoBehaviour
 {
     [Header("Movement attributes")]
     public float velocity = 5f; //Velocidad del jugador
@@ -45,7 +45,7 @@ public class PlayerMovementKaliman : MonoBehaviour
         gravity = (2 * jumpHeight) / math.pow(timeToJumpApex, 2);
         jumpVel = math.abs(gravity) * timeToJumpApex;
         rb.gravityScale = gravity;
-        otherPlayer = GameObject.FindGameObjectWithTag("Player1");
+        otherPlayer = GameObject.FindGameObjectWithTag("Player2");
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class PlayerMovementKaliman : MonoBehaviour
     {
         rb.WakeUp();
 
-        if (Input.GetKeyUp(KeyCode.DownArrow) && isGrounded())
+        if (Input.GetKeyUp(KeyCode.S) && isGrounded())
         {
             Uncrouch();
         }
@@ -64,7 +64,7 @@ public class PlayerMovementKaliman : MonoBehaviour
             return;
         }
 
-        movement.x = Input.GetAxisRaw("HorizontalP2"); // recibir input de derecha o izquierda
+        movement.x = Input.GetAxisRaw("HorizontalP1"); // recibir input de derecha o izquierda
 
         if (otherPlayer.transform.position.x <= transform.position.x)
         {
@@ -88,7 +88,7 @@ public class PlayerMovementKaliman : MonoBehaviour
             coyoteTimeCounter -= Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.UpArrow) && coyoteTimeCounter > 0f && !isJumping) //jump action
+        if (Input.GetKey(KeyCode.W) && coyoteTimeCounter > 0f && !isJumping) //jump action
         {
             //sounds.jump();
             Jump();
@@ -96,7 +96,7 @@ public class PlayerMovementKaliman : MonoBehaviour
             StartCoroutine(JumpCooldown());
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && isGrounded())
+        if (Input.GetKeyDown(KeyCode.S) && isGrounded())
         {
             Crouch();
         }

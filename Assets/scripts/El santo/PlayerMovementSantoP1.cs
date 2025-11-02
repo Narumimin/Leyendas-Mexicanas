@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using Unity.Mathematics;
 
-public class PlayerMovementSanto : MonoBehaviour
+public class PlayerMovementSantoP1 : MonoBehaviour
 {
     [Header("Movement attributes")]
     public float velocity = 5f; //Velocidad del jugador

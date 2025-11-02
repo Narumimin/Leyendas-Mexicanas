@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 176170118}
   - component: {fileID: 176170117}
   m_Layer: 0
-  m_Name: Player1
+  m_Name: The manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,12 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f58fb4fffdfb187499bb7b3b438293bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  char0: 0
-  char1: 0
-  isSelectorCheck: 1
-  checkList:
-  - {fileID: 341216650}
-  - {fileID: 1033107532}
 --- !u!4 &176170118
 Transform:
   m_ObjectHideFlags: 0
@@ -1266,6 +1260,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1161375225}
+        m_TargetAssemblyTypeName: CharacterSelected, Assembly-CSharp
+        m_MethodName: SelectChar0
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &921151704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1564,6 +1570,55 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1161375224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1161375226}
+  - component: {fileID: 1161375225}
+  m_Layer: 0
+  m_Name: The UIer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1161375225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161375224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dca1005931340847bd2e0fc7b7f89f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkList:
+  - {fileID: 341216650}
+  - {fileID: 1033107532}
+  - {fileID: 972254487}
+  - {fileID: 906066950}
+--- !u!4 &1161375226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161375224}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1140.1471, y: 400.4933, z: -15.427307}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1161939854
 GameObject:
   m_ObjectHideFlags: 0
@@ -2057,9 +2112,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2063359482}
+      - m_Target: {fileID: 176170117}
         m_TargetAssemblyTypeName: Toggle_Character, Assembly-CSharp
-        m_MethodName: SelectChar0
+        m_MethodName: SelectChar2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1161375225}
+        m_TargetAssemblyTypeName: CharacterSelected, Assembly-CSharp
+        m_MethodName: SelectChar2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2192,6 +2259,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 176170117}
         m_TargetAssemblyTypeName: Toggle_Character, Assembly-CSharp
+        m_MethodName: SelectChar1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1161375225}
+        m_TargetAssemblyTypeName: CharacterSelected, Assembly-CSharp
         m_MethodName: SelectChar1
         m_Mode: 1
         m_Arguments:
@@ -2768,9 +2847,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2063359482}
+      - m_Target: {fileID: 176170117}
         m_TargetAssemblyTypeName: Toggle_Character, Assembly-CSharp
-        m_MethodName: SelectChar1
+        m_MethodName: SelectChar3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1161375225}
+        m_TargetAssemblyTypeName: CharacterSelected, Assembly-CSharp
+        m_MethodName: SelectChar3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2951,56 +3042,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055224913}
   m_CullTransparentMesh: 1
---- !u!1 &2063359481
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2063359483}
-  - component: {fileID: 2063359482}
-  m_Layer: 0
-  m_Name: Player2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2063359482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063359481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f58fb4fffdfb187499bb7b3b438293bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  char0: 0
-  char1: 0
-  isSelectorCheck: 1
-  checkList:
-  - {fileID: 972254487}
-  - {fileID: 906066950}
---- !u!4 &2063359483
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063359481}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 499.77274, y: 640.4852, z: -0.4039861}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2095007354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,4 +3165,4 @@ SceneRoots:
   - {fileID: 2095007358}
   - {fileID: 1561911603}
   - {fileID: 176170118}
-  - {fileID: 2063359483}
+  - {fileID: 1161375226}

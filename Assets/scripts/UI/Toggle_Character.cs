@@ -3,55 +3,78 @@ using UnityEngine;
 
 public class Toggle_Character : MonoBehaviour
 {
+    public static Toggle_Character instance;
+    public static bool santoP1;
+    public static bool kalimanP1;
+    public static bool santoP2;
+    public static bool kalimanP2;
 
-    public bool char0;
-    public bool char1;
-    public bool isSelectorCheck;
-    public List<GameObject> checkList;
+    private void Awake()
+    {
+
+        instance = this;
+        DontDestroyOnLoad(instance);
+    }
 
     void Start()
     {
         if (!PlayerPrefs.HasKey("char0"))
         {
-            char0 = true;
+            santoP1 = true;
+        }
+
+        if (!PlayerPrefs.HasKey("char2"))
+        {
+            kalimanP2 = true;
         }
     }
 
     public void SelectChar0()
     {
         //select character 0
-        char0 = true;
-        char1 = false;
+        santoP1 = true;
+        kalimanP1 = false;
     }
 
     public void SelectChar1()
     {
         //select character 1
-        char0 = false;
-        char1 = true;
+        santoP1 = false;
+        kalimanP1 = true;
     }
 
-    private void Update()
+    public void SelectChar2()
     {
-        if (isSelectorCheck == true)
-        {
-            if (char0 == true)
-            {
-                checkList[0].SetActive(true);
-            }
-            else
-            {
-                checkList[0].SetActive(false);
-            }
-
-            if (char1 == true)
-            {
-                checkList[1].SetActive(true);
-            }
-            else
-            {
-                checkList[1].SetActive(false);
-            }
-        }
+        //select character 1
+        santoP2 = true;
+        kalimanP2 = false;
     }
+
+    public void SelectChar3()
+    {
+        //select character 1
+        santoP2 = false;
+        kalimanP2 = true;
+    }
+
+    public bool CheckChar0()
+    {
+        return santoP1;
+    }
+
+    public bool CheckChar1()
+    {
+        return kalimanP1;
+    }
+
+    public bool CheckChar2()
+    {
+        return santoP2;
+    }
+
+    public bool CheckChar3()
+    {
+        return kalimanP2;
+    }
+
 }
