@@ -25,15 +25,15 @@ public class PlayerMovementKalimanP1 : MonoBehaviour
     private float coyoteTimeCounter; //Contador con el que checamos el coyote time
 
     [Header("Animator")]
-    //public Animator animator; //Animator
+    public Animator animator; //Animator
 
     [Header("Grounded Info")]
     public LayerMask GroundLayer; //Detectar objetos con cierta layer puesta
     public Transform groundCheckPoint; //Punto donde se dibuja la esfera para checar si el jugador esta en el suelo
     public float radius; //Radio de la esfera mencionada
 
-    //[Header("Sound")]
-    //private Sounds sounds;
+    [Header("Sound")]
+    private SonidosKaliman sounds;
 
     [Header("Other player")]
     private GameObject otherPlayer;
@@ -59,7 +59,7 @@ public class PlayerMovementKalimanP1 : MonoBehaviour
             Uncrouch();
         }
 
-        //animator.SetBool("Crouching", isCrouching);
+        animator.SetBool("Crouching", isCrouching);
         if (isCrouching)
         {
             return;
@@ -82,7 +82,7 @@ public class PlayerMovementKalimanP1 : MonoBehaviour
         }
 
 
-        //animator.SetBool("onFloor", isGrounded());
+        animator.SetBool("onFloor", isGrounded());
         //animator.SetFloat("movement", movement.x);
 
         if (isGrounded()) //Coyote time related stuff
@@ -130,7 +130,7 @@ public class PlayerMovementKalimanP1 : MonoBehaviour
     {
         rb.linearVelocityY = jumpVel;
         //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVel);
-        //animator.SetBool("onFloor", false);
+        animator.SetBool("onFloor", false);
     }
 
     private IEnumerator JumpCooldown() //cooldown para el salto

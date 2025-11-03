@@ -25,7 +25,7 @@ public class PlayerMovementSantoP2 : MonoBehaviour
     private float coyoteTimeCounter; //Contador con el que checamos el coyote time
 
     [Header("Animator")]
-    //public Animator animator; //Animator
+    public Animator animator; //Animator
 
     [Header("Grounded Info")]
     public LayerMask GroundLayer; //Detectar objetos con cierta layer puesta
@@ -35,16 +35,14 @@ public class PlayerMovementSantoP2 : MonoBehaviour
     [Header("Other player")]
     private GameObject otherPlayer;
 
-    public bool Attacking;
-
-    //[Header("Sound")]
-    //private Sounds sounds;
+    [Header("Sound")]
+    private SonidosSanto sounds;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //sounds = GetComponent<Sounds>();
+        sounds = GetComponent<SonidosSanto>();
         gravity = (2 * jumpHeight) / math.pow(timeToJumpApex, 2);
         jumpVel = math.abs(gravity) * timeToJumpApex;
         rb.gravityScale = gravity;
@@ -61,7 +59,7 @@ public class PlayerMovementSantoP2 : MonoBehaviour
             Uncrouch();
         }
 
-        //animator.SetBool("Crouching", isCrouching);
+        animator.SetBool("Crouching", isCrouching);
         if (isCrouching)
         {
             return;
@@ -83,7 +81,7 @@ public class PlayerMovementSantoP2 : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
 
-        //animator.SetBool("onFloor", isGrounded());
+        animator.SetBool("onFloor", isGrounded());
         //animator.SetFloat("movement", movement.x);
 
         if (isGrounded()) //Coyote time related stuff
@@ -97,7 +95,7 @@ public class PlayerMovementSantoP2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow) && coyoteTimeCounter > 0f && !isJumping) //jump action
         {
-            //sounds.jump();
+            sounds.jump();
             Jump();
             coyoteTimeCounter = 0f;
             StartCoroutine(JumpCooldown());
@@ -131,7 +129,7 @@ public class PlayerMovementSantoP2 : MonoBehaviour
     {
         rb.linearVelocityY = jumpVel;
         //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVel);
-        //animator.SetBool("onFloor", false);
+        animator.SetBool("onFloor", false);
     }
 
     private IEnumerator JumpCooldown() //cooldown para el salto

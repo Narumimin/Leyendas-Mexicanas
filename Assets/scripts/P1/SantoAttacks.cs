@@ -20,6 +20,10 @@ public class SantoAttacks : MonoBehaviour
     private PlayerMovementSantoP1 playerSantoP1;
     private PlayerMovementSantoP2 playerSantoP2;
     private SantoAttacks santoAttacks;
+
+    private KalimanAttacks EnemyKaliman;
+    private SantoAttacks EnemySanto;
+
     public float timeBetweenAttacks = 0.3f;
     public float timeBetweenSpecialAtack = 10f;
     private float attackTimeCounter;
@@ -27,12 +31,12 @@ public class SantoAttacks : MonoBehaviour
     private Slider MeterP1;
     private Slider MeterP2;
     public VideoPlayer Video;
-
-    //private Sounds sounds;
+    private SonidosSanto sounds;
 
     private void Start()
     {
         santoAttacks = GetComponent<SantoAttacks>();
+        sounds = GetComponent<SonidosSanto>();
         Video = GameObject.FindGameObjectWithTag("VideoSanto").GetComponent<VideoPlayer>();
         player1 = GetComponent<PlayerMovementSantoP1>();
         player2 = GetComponent<PlayerMovementSantoP2>();
@@ -49,12 +53,12 @@ public class SantoAttacks : MonoBehaviour
         specialTimeCounter = timeBetweenAttacks;
         if (MeterP1 != null)
         {
-            MeterP1.value = 0f;
+            MeterP1.value = 10f;
         }
 
         if (MeterP2 != null)
         {
-            MeterP2.value = 0f;
+            MeterP2.value = 10f;
         }
         //sounds = GameObject.FindGameObjectWithTag("Player").GetComponent<Sounds>();
     }
@@ -66,14 +70,30 @@ public class SantoAttacks : MonoBehaviour
         {            
             attackTimeCounter = 0f;
             //sounds.attack();
-            //Player.animator.SetTrigger("attacking");
+            if (player1 != null)
+            {
+                player1.animator.SetTrigger("attacking");
+            }
+            else if (player2 != null)
+            {
+                player2.animator.SetTrigger("attacking");
+            }
+            sounds.WhiffAttack();
             Attack();
         }
         if (player1 != null && Input.GetKeyDown(KeyCode.G) && specialTimeCounter >= timeBetweenSpecialAtack)
         {
             specialTimeCounter = 0f;
             //sounds.attack();
-            //Player.animator.SetTrigger("attacking");
+            if (player1 != null)
+            {
+                player1.animator.SetTrigger("attacking");
+            }
+            else if (player2 != null)
+            {
+                player2.animator.SetTrigger("attacking");
+            }
+            sounds.WhiffAttack();
             SpecialAttack();
         }
 
@@ -81,14 +101,30 @@ public class SantoAttacks : MonoBehaviour
         {
             attackTimeCounter = 0f;
             //sounds.attack();
-            //Player.animator.SetTrigger("attacking");
+            if (player1 != null)
+            {
+                player1.animator.SetTrigger("attacking");
+            }
+            else if (player2 != null)
+            {
+                player2.animator.SetTrigger("attacking");
+            }
+            sounds.WhiffAttack();
             Attack();
         }
         else if (player2 != null && Input.GetKeyDown(KeyCode.L) && specialTimeCounter >= timeBetweenSpecialAtack)
         {
             specialTimeCounter = 0f;
             //sounds.attack();
-            //Player.animator.SetTrigger("attacking");
+            if (player1 != null)
+            {
+                player1.animator.SetTrigger("attacking");
+            }
+            else if (player2 != null)
+            {
+                player2.animator.SetTrigger("attacking");
+            }
+            sounds.WhiffAttack();
             SpecialAttack();
         }
         attackTimeCounter += Time.deltaTime;
@@ -113,14 +149,34 @@ public class SantoAttacks : MonoBehaviour
         {
             if (hit.GetComponent<HealthP2>() != null)
             {
-                //sounds.hit();
+                sounds.attack();
                 hit.GetComponent<HealthP2>().health -= damage;
+                if (hit.GetComponent<HealthP2>().soundsKaliman != null)
+                {
+                    hit.GetComponent<HealthP2>().soundsKaliman.damage();
+                    hit.GetComponent<HealthP2>().animator.SetTrigger("Damage");
+                }
+                if (hit.GetComponent<HealthP2>().soundsSanto != null)
+                {
+                    hit.GetComponent<HealthP2>().soundsSanto.damage();
+                    hit.GetComponent<HealthP2>().animator.SetTrigger("Damage");
+                }
                 //hit.GetComponent<EnemyHealth>().animator.SetTrigger("Damage");
             }
             if (hit.GetComponent<HealthP1>() != null)
             {
-                //sounds.hit();
+                sounds.attack();
                 hit.GetComponent<HealthP1>().health -= damage;
+                if (hit.GetComponent<HealthP1>().soundsKaliman != null)
+                {
+                    hit.GetComponent<HealthP1>().soundsKaliman.damage();
+                    hit.GetComponent<HealthP1>().animator.SetTrigger("Damage");
+                }
+                if (hit.GetComponent<HealthP1>().soundsSanto != null)
+                {
+                    hit.GetComponent<HealthP1>().soundsSanto.damage();
+                    hit.GetComponent<HealthP1>().animator.SetTrigger("Damage");
+                }
                 //hit.GetComponent<EnemyHealth>().animator.SetTrigger("Damage");
             }
 
@@ -143,7 +199,7 @@ public class SantoAttacks : MonoBehaviour
                 {
                     playerSantoP2.enabled = false;
                 }
-                santoAttacks.enabled = true;
+                santoAttacks.enabled = false;
                 //sounds.hit();
                 //hit.GetComponent<EnemyHealth>().animator.SetTrigger("Damage");
             }
@@ -170,23 +226,58 @@ public class SantoAttacks : MonoBehaviour
         {
             if (hit.GetComponent<HealthP2>() != null)
             {
-                //sounds.hit();
+                sounds.attack();
                 Video.enabled = true;
                 Video.Play();
                 StartCoroutine(SpecialAttackingP1());
                 hit.GetComponent<HealthP2>().health -= specialDamage;
-
-                //hit.GetComponent<EnemyHealth>().animator.SetTrigger("Damage");
+                if (hit.GetComponent<HealthP2>().soundsKaliman != null)
+                {
+                    hit.GetComponent<HealthP2>().soundsKaliman.damage();
+                }
+                if (hit.GetComponent<HealthP2>().soundsSanto != null)
+                {
+                    hit.GetComponent<HealthP2>().soundsSanto.damage();
+                }
+                //hit.GetComponent<HealthP2>().animator.SetTrigger("Damage");
+                if (hit.GetComponent<SantoAttacks>() != null)
+                {
+                    EnemySanto = hit.GetComponent<SantoAttacks>();
+                    EnemySanto.enabled = false;
+                }
+                if (hit.GetComponent<KalimanAttacks>() != null)
+                {
+                    EnemyKaliman = hit.GetComponent<KalimanAttacks>();
+                    EnemyKaliman.enabled = false;
+                }
             }
 
             if (hit.GetComponent<HealthP1>() != null)
             {
-                //sounds.hit();
+                sounds.attack();
                 Video.enabled = true;
                 Video.Play();
                 StartCoroutine(SpecialAttackingP2());
                 hit.GetComponent<HealthP1>().health -= specialDamage;
-                //hit.GetComponent<EnemyHealth>().animator.SetTrigger("Damage");
+                if (hit.GetComponent<HealthP1>().soundsKaliman != null)
+                {
+                    hit.GetComponent<HealthP1>().soundsKaliman.damage();
+                }
+                if (hit.GetComponent<HealthP1>().soundsSanto != null)
+                {
+                    hit.GetComponent<HealthP1>().soundsSanto.damage();
+                }
+                //hit.GetComponent<HealthP2>().animator.SetTrigger("Damage");
+                if (hit.GetComponent<SantoAttacks>() != null)
+                {
+                    EnemySanto = hit.GetComponent<SantoAttacks>();
+                    EnemySanto.enabled = false;
+                }
+                if (hit.GetComponent<KalimanAttacks>() != null)
+                {
+                    EnemyKaliman = hit.GetComponent<KalimanAttacks>();
+                    EnemyKaliman.enabled = false;
+                }
             }
 
             if ((hit.GetComponent<HealthP2>() != null && hit.GetComponent<HealthP2>().health <= 0) || (hit.GetComponent<HealthP1>() != null && hit.GetComponent<HealthP1>().health <= 0))
@@ -208,7 +299,7 @@ public class SantoAttacks : MonoBehaviour
                 {
                     playerSantoP2.enabled = false;
                 }
-                santoAttacks.enabled = true;
+                santoAttacks.enabled = false;
                 //sounds.hit();
                 //hit.GetComponent<EnemyHealth>().animator.SetTrigger("Damage");
             }
@@ -247,6 +338,7 @@ public class SantoAttacks : MonoBehaviour
         {
             playerSantoP2.enabled = false;
         }
+        santoAttacks.enabled = false;
         player1.isAttacking = true;
 
         yield return new WaitForSeconds(4f);
@@ -268,8 +360,17 @@ public class SantoAttacks : MonoBehaviour
         {
             playerSantoP2.enabled = true;
         }
+        santoAttacks.enabled = true;
         Video.Pause();
         Video.enabled = false;
+        if (EnemySanto != null)
+        {
+            EnemySanto.enabled = true;
+        }
+        if (EnemyKaliman != null)
+        {
+            EnemyKaliman.enabled = true;
+        }
     }
 
     private IEnumerator SpecialAttackingP2()
@@ -290,6 +391,7 @@ public class SantoAttacks : MonoBehaviour
         {
             playerSantoP2.enabled = false;
         }
+        santoAttacks.enabled = false;
         player2.isAttacking = true;
 
         yield return new WaitForSeconds(4f);
@@ -311,8 +413,17 @@ public class SantoAttacks : MonoBehaviour
         {
             playerSantoP2.enabled = true;
         }
+        santoAttacks.enabled = true;
         Video.Pause();
         Video.enabled = false;
+        if (EnemySanto != null)
+        {
+            EnemySanto.enabled = true;
+        }
+        if (EnemyKaliman != null)
+        {
+            EnemyKaliman.enabled = true;
+        }
     }
 
     private void OnDrawGizmos()

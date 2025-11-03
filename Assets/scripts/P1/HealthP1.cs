@@ -14,17 +14,20 @@ public class HealthP1 : MonoBehaviour
     private SantoAttacks santoAttacks;
     private KalimanAttacks kalimanAttacks;
     //public AudioSource AudioSource;
-    //private EnemySounds sound;
-    //public Animator animator;
+    public Animator animator;
+    public SonidosSanto soundsSanto;
+    public SonidosKaliman soundsKaliman;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
+        soundsKaliman = GetComponent<SonidosKaliman>();
+        soundsSanto = GetComponent<SonidosSanto>();
         Santo = GetComponent<PlayerMovementSantoP2>();
         Kaliman = GetComponent<PlayerMovementKalimanP2>();
         santoAttacks = GetComponent<SantoAttacks>();
         kalimanAttacks = GetComponent<KalimanAttacks>();
         slider = GameObject.FindGameObjectWithTag("healthbarP1").GetComponent<Slider>();
-        //sound = GetComponent<EnemySounds>();
         slider.maxValue = maxHealth;
         health = maxHealth;
     }
@@ -45,10 +48,12 @@ public class HealthP1 : MonoBehaviour
         isDead = true;
         if (santoAttacks != null)
         {
+            soundsSanto.death();
             santoAttacks.enabled = false;
         }
         if (kalimanAttacks != null)
         {
+            soundsKaliman.death();
             kalimanAttacks.enabled = false;
         }
         //AudioSource.Pause();

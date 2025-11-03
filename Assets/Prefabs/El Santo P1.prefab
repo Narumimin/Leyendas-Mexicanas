@@ -78,6 +78,8 @@ GameObject:
   - component: {fileID: 1504563236475940810}
   - component: {fileID: 2381397945908432087}
   - component: {fileID: 6278425561280654923}
+  - component: {fileID: 79325527000612517}
+  - component: {fileID: 6916391333074623793}
   m_Layer: 6
   m_Name: El Santo P1
   m_TagString: Player1
@@ -150,7 +152,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d2e673d45a0da2a41a92eb740756f69e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e562480a6a4daa147a54c06f832a1170, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -284,6 +286,7 @@ MonoBehaviour:
   timeToJumpApex: 4
   gravity: 0
   gravityChange: 1
+  animator: {fileID: 6916391333074623793}
   GroundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -305,6 +308,8 @@ MonoBehaviour:
   health: 0
   isDead: 0
   slider: {fileID: 0}
+  soundsSanto: {fileID: 0}
+  soundsKaliman: {fileID: 0}
 --- !u!114 &6278425561280654923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +334,45 @@ MonoBehaviour:
   timeBetweenAttacks: 0.5
   timeBetweenSpecialAtack: 10
   Video: {fileID: 0}
+--- !u!114 &79325527000612517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077144190741145239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8211e5cd2314ab4aa3f45339feb706f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SonidosSanto
+  attackClip: {fileID: 8300000, guid: de4142c37160e0141b4e73005b66f987, type: 3}
+  whiffAttackClip: {fileID: 8300000, guid: f2e65c7a436d3ee458baab1344bd59cb, type: 3}
+  jumpClip: {fileID: 8300000, guid: 0cc38ea02f6ef2b449f88084f2cbc77b, type: 3}
+  deathClip: {fileID: 8300000, guid: c65433665fa4da54fbf7f0b161919cf5, type: 3}
+  damageClip: {fileID: 8300000, guid: e5b133f9361a0104b9af20669f888333, type: 3}
+--- !u!95 &6916391333074623793
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077144190741145239}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43bf0109153119e4a9810ccdc19f2060, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2385473210130987059
 GameObject:
   m_ObjectHideFlags: 0

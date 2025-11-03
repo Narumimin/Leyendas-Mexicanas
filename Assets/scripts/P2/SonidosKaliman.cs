@@ -8,8 +8,6 @@ public class SonidosKaliman : MonoBehaviour
     public AudioClip jumpClip;
     public AudioClip deathClip;
     public AudioClip damageClip;
-    public AudioClip runClip;
-    public AudioClip playerDeathClip;
 
     public void attack()
     {
@@ -33,15 +31,5 @@ public class SonidosKaliman : MonoBehaviour
     public void damage()
     {
         AudioSource.PlayClipAtPoint(damageClip, transform.position, 1f);
-    }
-
-    public void run()
-    {
-        AudioSource.PlayClipAtPoint(runClip, transform.position, 1f);
-    }
-
-    public void playerDeath()
-    {
-        AudioSource.PlayClipAtPoint(playerDeathClip, transform.position, 1f);
     }
 }

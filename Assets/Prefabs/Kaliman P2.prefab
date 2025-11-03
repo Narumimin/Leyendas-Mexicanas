@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 5621409645837851177}
   - component: {fileID: 8938608130041297183}
   - component: {fileID: 400845757740145160}
+  - component: {fileID: 2059492507047510103}
   m_Layer: 7
   m_Name: Kaliman P2
   m_TagString: Player2
@@ -120,12 +121,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5627253827256416435, guid: 441267abeb2d32b4faccb58a374e9aea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1baed9e52d0950043a62ba294a0d676b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.4485714, y: 3.7857144}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -254,6 +255,7 @@ MonoBehaviour:
   timeToJumpApex: 4
   gravity: 0
   gravityChange: 1
+  animator: {fileID: 2059492507047510103}
   GroundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -275,6 +277,8 @@ MonoBehaviour:
   health: 0
   isDead: 0
   slider: {fileID: 0}
+  soundsSanto: {fileID: 0}
+  soundsKaliman: {fileID: 0}
 --- !u!114 &8938608130041297183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,11 +316,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SonidosKaliman
   attackClip: {fileID: 8300000, guid: de4142c37160e0141b4e73005b66f987, type: 3}
   whiffAttackClip: {fileID: 8300000, guid: f2e65c7a436d3ee458baab1344bd59cb, type: 3}
-  jumpClip: {fileID: 0}
-  deathClip: {fileID: 0}
-  damageClip: {fileID: 0}
-  runClip: {fileID: 0}
-  playerDeathClip: {fileID: 0}
+  jumpClip: {fileID: 8300000, guid: d09617438727ef1458c73ee29f47356a, type: 3}
+  deathClip: {fileID: 8300000, guid: c65433665fa4da54fbf7f0b161919cf5, type: 3}
+  damageClip: {fileID: 8300000, guid: 081049460f934ed448a6799d8d9b369f, type: 3}
+--- !u!95 &2059492507047510103
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3724044171455953266}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24abdd4ca5325ad4cbb4c680e118e363, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3993303967281798209
 GameObject:
   m_ObjectHideFlags: 0

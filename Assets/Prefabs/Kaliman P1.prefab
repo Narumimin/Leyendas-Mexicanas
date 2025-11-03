@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: -3035452260237651434}
   - component: {fileID: -5427732475554241804}
   - component: {fileID: 3221526920165550623}
+  - component: {fileID: 6508788793854457286}
   m_Layer: 6
   m_Name: Kaliman P1
   m_TagString: Player1
@@ -285,6 +286,7 @@ MonoBehaviour:
   timeToJumpApex: 4
   gravity: 0
   gravityChange: 1
+  animator: {fileID: 6508788793854457286}
   GroundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -306,6 +308,8 @@ MonoBehaviour:
   health: 0
   isDead: 0
   slider: {fileID: 0}
+  soundsSanto: {fileID: 0}
+  soundsKaliman: {fileID: 0}
 --- !u!114 &-5427732475554241804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,11 +347,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SonidosKaliman
   attackClip: {fileID: 8300000, guid: de4142c37160e0141b4e73005b66f987, type: 3}
   whiffAttackClip: {fileID: 8300000, guid: f2e65c7a436d3ee458baab1344bd59cb, type: 3}
-  jumpClip: {fileID: 0}
-  deathClip: {fileID: 0}
-  damageClip: {fileID: 0}
-  runClip: {fileID: 0}
-  playerDeathClip: {fileID: 0}
+  jumpClip: {fileID: 8300000, guid: d09617438727ef1458c73ee29f47356a, type: 3}
+  deathClip: {fileID: 8300000, guid: c65433665fa4da54fbf7f0b161919cf5, type: 3}
+  damageClip: {fileID: 8300000, guid: 081049460f934ed448a6799d8d9b369f, type: 3}
+--- !u!95 &6508788793854457286
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7030135363729406264}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24abdd4ca5325ad4cbb4c680e118e363, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8373830741168063782
 GameObject:
   m_ObjectHideFlags: 0
