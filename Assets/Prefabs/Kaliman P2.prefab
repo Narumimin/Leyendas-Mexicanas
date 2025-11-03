@@ -91,6 +91,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -112,6 +114,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -197,8 +200,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.16640782, y: -1.0231923}
-  m_Size: {x: 0.9449096, y: 1.6387889}
+  m_Offset: {x: -0.16640782, y: -1.1321633}
+  m_Size: {x: 0.9449096, y: 1.4208469}
   m_Direction: 0
 --- !u!50 &7424191373922837019
 Rigidbody2D:
@@ -243,6 +246,7 @@ MonoBehaviour:
   standingCollider: {fileID: 265768749792556166}
   crouchingCollder: {fileID: 3228371399489891154}
   isCrouching: 0
+  isAttacking: 0
   jumpVel: 0
   jumpHeight: 30
   timeToJumpApex: 4
@@ -267,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 500
   health: 0
+  isDead: 0
   slider: {fileID: 0}
 --- !u!114 &8938608130041297183
 MonoBehaviour:

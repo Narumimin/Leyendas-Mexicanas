@@ -125,16 +125,16 @@ public class SantoAttacks : MonoBehaviour
 
     private IEnumerator AttackingP1(float timeAttack)
     {
-        player1.isCrouching = true;
+        player1.isAttacking = true;
         yield return new WaitForSeconds(timeAttack);
-        player1.isCrouching = false;
+        player1.isAttacking = false;
     }
 
     private IEnumerator AttackingP2(float timeAttack)
     {
-        player2.isCrouching = true;
+        player2.isAttacking = true;
         yield return new WaitForSeconds(timeAttack);
-        player2.isCrouching = false;
+        player2.isAttacking = false;
     }
 
 }
