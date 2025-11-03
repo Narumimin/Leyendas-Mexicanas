@@ -308,6 +308,7 @@ MonoBehaviour:
   health: 0
   isDead: 0
   slider: {fileID: 0}
+  animator: {fileID: 0}
   soundsSanto: {fileID: 0}
   soundsKaliman: {fileID: 0}
 --- !u!114 &6278425561280654923
