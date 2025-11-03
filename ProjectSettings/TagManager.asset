@@ -8,6 +8,10 @@ TagManager:
   - Player2
   - healthbarP1
   - healthbarP2
+  - VideoSanto
+  - VideoKaliman
+  - MeterP1
+  - MeterP2
   layers:
   - Default
   - TransparentFX

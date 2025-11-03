@@ -115,6 +115,10 @@ public class PlayerMovementSantoP2 : MonoBehaviour
         {
             return;
         }
+        if (isAttacking)
+        {
+            return;
+        }
         transform.Translate(movement * velocity * Time.deltaTime); //mover el jugador de derecha a izquierda
     }
 

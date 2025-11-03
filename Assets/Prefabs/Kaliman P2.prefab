@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 8390125676362070461}
   - component: {fileID: 5621409645837851177}
   - component: {fileID: 8938608130041297183}
+  - component: {fileID: 400845757740145160}
   m_Layer: 7
   m_Name: Kaliman P2
   m_TagString: Player2
@@ -69,6 +70,7 @@ Transform:
   m_Children:
   - {fileID: 589404036077082480}
   - {fileID: 7096419181159029172}
+  - {fileID: 3802343313911264710}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6002611004555417749
@@ -287,11 +289,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 7096419181159029172}
   attackRadius: 1
+  specialAttackPoint: {fileID: 3802343313911264710}
+  specialAttackRadius: 0.7
   attackableLayer:
     serializedVersion: 2
     m_Bits: 64
-  damage: 50
+  damage: 40
+  specialDamage: 220
   timeBetweenAttacks: 0.2
+  timeBetweenSpecialAtack: 10
+--- !u!114 &400845757740145160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3724044171455953266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79be8cd978a5d3f49ac9bd00a22aaf69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SonidosKaliman
+  attackClip: {fileID: 8300000, guid: de4142c37160e0141b4e73005b66f987, type: 3}
+  whiffAttackClip: {fileID: 8300000, guid: f2e65c7a436d3ee458baab1344bd59cb, type: 3}
+  jumpClip: {fileID: 0}
+  deathClip: {fileID: 0}
+  damageClip: {fileID: 0}
+  runClip: {fileID: 0}
+  playerDeathClip: {fileID: 0}
 --- !u!1 &3993303967281798209
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,6 +343,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.164, y: -1.432, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4525795290687504154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5078802687842292540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3802343313911264710}
+  m_Layer: 6
+  m_Name: SpecialAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3802343313911264710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5078802687842292540}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6170001, y: 1.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

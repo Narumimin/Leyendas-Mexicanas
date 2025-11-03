@@ -62,6 +62,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1130216505080908093}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8330058413410327325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3460645412485900250}
+  m_Layer: 7
+  m_Name: SpecialAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3460645412485900250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8330058413410327325}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: 0.66, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1130216505080908093}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8425204338590005903
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,6 +131,7 @@ Transform:
   m_Children:
   - {fileID: 6541455683242129958}
   - {fileID: 4280415667128560997}
+  - {fileID: 3460645412485900250}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5687524485380605682
@@ -122,6 +154,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -143,6 +177,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -274,6 +309,7 @@ MonoBehaviour:
   standingCollider: {fileID: 5730729805007758537}
   crouchingCollder: {fileID: 2648635520496337029}
   isCrouching: 0
+  isAttacking: 0
   jumpVel: 0
   jumpHeight: 30
   timeToJumpApex: 4
@@ -299,6 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 500
   health: 0
+  isDead: 0
   slider: {fileID: 0}
 --- !u!114 &7018985779433137442
 MonoBehaviour:
@@ -314,8 +351,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 4280415667128560997}
   attackRadius: 1
+  specialAttackPoint: {fileID: 3460645412485900250}
+  specialAttackRadius: 0.7
   attackableLayer:
     serializedVersion: 2
     m_Bits: 64
   damage: 60
+  specialDamage: 170
   timeBetweenAttacks: 0.5
+  timeBetweenSpecialAtack: 10
+  Video: {fileID: 0}

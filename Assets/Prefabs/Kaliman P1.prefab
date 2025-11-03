@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7763899080332978933}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1826682373021180356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8395678491497606289}
+  m_Layer: 6
+  m_Name: SpecialAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8395678491497606289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826682373021180356}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.617, y: 1.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7763899080332978933}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7030135363729406264
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,6 +78,7 @@ GameObject:
   - component: {fileID: 7773607751404921252}
   - component: {fileID: -3035452260237651434}
   - component: {fileID: -5427732475554241804}
+  - component: {fileID: 3221526920165550623}
   m_Layer: 6
   m_Name: Kaliman P1
   m_TagString: Player1
@@ -69,6 +101,7 @@ Transform:
   m_Children:
   - {fileID: 3470218967193456099}
   - {fileID: 6082442233062372014}
+  - {fileID: 8395678491497606289}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4809192022030620351
@@ -287,11 +320,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 6082442233062372014}
   attackRadius: 1
+  specialAttackPoint: {fileID: 8395678491497606289}
+  specialAttackRadius: 0.7
   attackableLayer:
     serializedVersion: 2
     m_Bits: 128
-  damage: 50
+  damage: 40
+  specialDamage: 220
   timeBetweenAttacks: 0.2
+  timeBetweenSpecialAtack: 10
+--- !u!114 &3221526920165550623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7030135363729406264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79be8cd978a5d3f49ac9bd00a22aaf69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SonidosKaliman
+  attackClip: {fileID: 8300000, guid: de4142c37160e0141b4e73005b66f987, type: 3}
+  whiffAttackClip: {fileID: 8300000, guid: f2e65c7a436d3ee458baab1344bd59cb, type: 3}
+  jumpClip: {fileID: 0}
+  deathClip: {fileID: 0}
+  damageClip: {fileID: 0}
+  runClip: {fileID: 0}
+  playerDeathClip: {fileID: 0}
 --- !u!1 &8373830741168063782
 GameObject:
   m_ObjectHideFlags: 0
