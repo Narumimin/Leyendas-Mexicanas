@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5300247103354604907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4280415667128560997}
+  m_Layer: 7
+  m_Name: StandAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4280415667128560997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300247103354604907}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.09, y: 0.66, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1130216505080908093}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6030311701806883363
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6541455683242129958}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +76,9 @@ GameObject:
   - component: {fileID: 2648635520496337029}
   - component: {fileID: 8682000247073003411}
   - component: {fileID: 1222622990416983314}
-  m_Layer: 0
+  - component: {fileID: 3323451750237260616}
+  - component: {fileID: 7018985779433137442}
+  m_Layer: 7
   m_Name: El Santo P2
   m_TagString: Player2
   m_Icon: {fileID: 0}
@@ -66,6 +99,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6541455683242129958}
+  - {fileID: 4280415667128560997}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5687524485380605682
@@ -250,3 +284,38 @@ MonoBehaviour:
     m_Bits: 8
   groundCheckPoint: {fileID: 6541455683242129958}
   radius: 0.5
+  Attacking: 0
+--- !u!114 &3323451750237260616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8425204338590005903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becaf5e44446fb84e8dd0d261ed37b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 500
+  health: 0
+  slider: {fileID: 0}
+--- !u!114 &7018985779433137442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8425204338590005903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98cab710c2cd094fa95db436213162a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 4280415667128560997}
+  attackRadius: 1
+  attackableLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  damage: 60
+  timeBetweenAttacks: 0.5

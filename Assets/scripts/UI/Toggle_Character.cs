@@ -11,13 +11,23 @@ public class Toggle_Character : MonoBehaviour
 
     private void Awake()
     {
-
-        instance = this;
-        DontDestroyOnLoad(instance);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(instance);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start()
     {
+        santoP1 = false;
+        santoP2 = false;
+        kalimanP1 = false;
+        kalimanP2 = false;
         if (!PlayerPrefs.HasKey("char0"))
         {
             santoP1 = true;

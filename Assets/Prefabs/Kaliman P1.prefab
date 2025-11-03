@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &885351458156611999
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6082442233062372014}
+  m_Layer: 6
+  m_Name: StandAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6082442233062372014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885351458156611999}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.82, y: 1.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7763899080332978933}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7030135363729406264
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +45,9 @@ GameObject:
   - component: {fileID: 3806079009115759226}
   - component: {fileID: 9041426408815892936}
   - component: {fileID: 7773607751404921252}
-  m_Layer: 0
+  - component: {fileID: -3035452260237651434}
+  - component: {fileID: -5427732475554241804}
+  m_Layer: 6
   m_Name: Kaliman P1
   m_TagString: Player1
   m_Icon: {fileID: 0}
@@ -35,6 +68,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3470218967193456099}
+  - {fileID: 6082442233062372014}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4809192022030620351
@@ -219,6 +253,40 @@ MonoBehaviour:
     m_Bits: 8
   groundCheckPoint: {fileID: 3470218967193456099}
   radius: 0.46
+--- !u!114 &-3035452260237651434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7030135363729406264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6008e5b49a44074591f54509f08f7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 500
+  health: 0
+  slider: {fileID: 0}
+--- !u!114 &-5427732475554241804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7030135363729406264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0862ec0663d1704aaeae2e28f029418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 6082442233062372014}
+  attackRadius: 1
+  attackableLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  damage: 50
+  timeBetweenAttacks: 0.2
 --- !u!1 &8373830741168063782
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3470218967193456099}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

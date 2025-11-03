@@ -34,6 +34,8 @@ public class PlayerMovementSantoP2 : MonoBehaviour
     [Header("Other player")]
     private GameObject otherPlayer;
 
+    public bool Attacking;
+
     //[Header("Sound")]
     //private Sounds sounds;
 
