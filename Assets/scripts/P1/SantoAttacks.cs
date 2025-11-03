@@ -161,7 +161,6 @@ public class SantoAttacks : MonoBehaviour
                     hit.GetComponent<HealthP2>().soundsSanto.damage();
                     hit.GetComponent<HealthP2>().animator.SetTrigger("Damage");
                 }
-                //hit.GetComponent<EnemyHealth>().animator.SetTrigger("Damage");
             }
             if (hit.GetComponent<HealthP1>() != null)
             {
@@ -177,7 +176,6 @@ public class SantoAttacks : MonoBehaviour
                     hit.GetComponent<HealthP1>().soundsSanto.damage();
                     hit.GetComponent<HealthP1>().animator.SetTrigger("Damage");
                 }
-                //hit.GetComponent<EnemyHealth>().animator.SetTrigger("Damage");
             }
 
             if ((hit.GetComponent<HealthP2>() != null && hit.GetComponent<HealthP2>().health <= 0) || (hit.GetComponent<HealthP1>() != null && hit.GetComponent<HealthP1>().health <= 0))

@@ -56,6 +56,7 @@ public class HealthP1 : MonoBehaviour
             soundsKaliman.death();
             kalimanAttacks.enabled = false;
         }
+        animator.SetBool("ded", true);
         //AudioSource.Pause();
         //sound.bossEnd();
     }
