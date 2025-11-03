@@ -9,6 +9,7 @@ public class Spawning : MonoBehaviour
     public AudioClip kalimanIntro;
     public AudioClip santoIntro;
     public AudioClip dingDing;
+    public AudioClip Versus;
     public AudioSource BG;
 
     public GameObject santoP1;
@@ -51,6 +52,8 @@ public class Spawning : MonoBehaviour
             AudioSource.PlayClipAtPoint(kalimanIntro, transform.position, 1f);
         }
         yield return new WaitForSeconds(4f);
+        AudioSource.PlayClipAtPoint(Versus, transform.position, 1f);
+        yield return new WaitForSeconds(1f);
         StartCoroutine(IntroduccionP2());
     }
 

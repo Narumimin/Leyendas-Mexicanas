@@ -12,6 +12,7 @@ public class PlayerMovementSantoP2 : MonoBehaviour
     [SerializeField] private Collider2D standingCollider;
     [SerializeField] private Collider2D crouchingCollder;
     public bool isCrouching = false;
+    public bool isAttacking = false;
 
     [Header("Jump attributes")]
     public float jumpVel; //Velocidad del salto
@@ -62,6 +63,11 @@ public class PlayerMovementSantoP2 : MonoBehaviour
 
         //animator.SetBool("Crouching", isCrouching);
         if (isCrouching)
+        {
+            return;
+        }
+
+        if (isAttacking)
         {
             return;
         }

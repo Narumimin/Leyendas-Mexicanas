@@ -22,8 +22,8 @@ public class KalimanAttacks : MonoBehaviour
     private void Start()
     {
         kalimanAttacks = GetComponent<KalimanAttacks>();
-        player1 = GetComponent<PlayerMovementKalimanP1>();
-        player2 = GetComponent<PlayerMovementKalimanP2>();
+        //player1 = GetComponent<PlayerMovementKalimanP1>();
+        //player2 = GetComponent<PlayerMovementKalimanP2>();
         playerSantoP1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerMovementSantoP1>();
         playerSantoP2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerMovementSantoP2>();
         playerKalimanP1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerMovementKalimanP1>();
@@ -89,11 +89,11 @@ public class KalimanAttacks : MonoBehaviour
                 Debug.Log("wdwdwdwdwdwd");
                 if (player1 != null)
                 {
-                    player1.enabled = false;
+                   // player1.enabled = false;
                 }
                 if (player2 != null)
                 {
-                    player2.enabled = false;
+                    //player2.enabled = false;
                 }
                 if (playerKalimanP1 != null)
                 {
@@ -126,15 +126,15 @@ public class KalimanAttacks : MonoBehaviour
 
     private IEnumerator AttackingP1(float timeAttack)
     {
-        player1.isCrouching = true;
+        player1.isAttacking = true;
         yield return new WaitForSeconds(timeAttack);
-        player1.isCrouching = false;
+        player1.isAttacking = false;
     }
 
     private IEnumerator AttackingP2(float timeAttack)
     {
-        player2.isCrouching = true;
+        player2.isAttacking = true;
         yield return new WaitForSeconds(timeAttack);
-        player2.isCrouching = false;
+        player2.isAttacking = false;
     }
 }
